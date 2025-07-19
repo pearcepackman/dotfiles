@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#Defining config_items for later usage
+DOTFILES_DIR="$HOME/Programming/dotfiles/config"
+TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
+LOG_FILE="$HOME/Programming/dotfiles/backup-log.txt"
+CONFIG_ITEMS=("alacritty" "i3" "nvim" "picom" "polybar" "rofi")
+
+echo "[$TIMESTAMP] Starting dotfiles backup..."
+#For the items in CONFIG_ITEMS, copy them into the repo
+for ITEM in "${CONFIG_ITEMS[@]}"; do
+	#Find source of new config item
+	SRC="$HOME/.config/$ITEM"
+	#Find destination in repo
+	DEST="$DOTFILES_DIR/$ITEM"
+	
+	#If the script can find that file in the ./config area, then remove old files in repo and copy the new ones in
+	if [ -d "$SRC" ]; then
+		rm -rf "$DEST"
+		cp -r "$SRC" "$DEST"
+		echo "Synced: $ITEM"
+	#If for whatever reason it can't find those files in ./config, skip it
+	else
+		echo "SKIPPED (Missing): $SRC"
+	fi
+done
+
+#Git commit script
+cd "$HOME/Programming/dotfiles"
+git add .
+
+#Asking for user input here!
+echo "Enter commit message (leave blank for default):"
+read USER_MSG
+
+if [-z "$USER_MSG" ]; then
+	COMMIT_MSG="Backup on: $TIMESTAMP"
+else
+	COMMIT_MSG="$USER_MSG"
+fi
+
+git commit -m "$COMMIT_MSG"
+git push

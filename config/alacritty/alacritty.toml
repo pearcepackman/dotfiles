@@ -11,7 +11,7 @@ opacity = 1
 size = 11
 
 [colors.primary]
-background = "#2e312c"
+background = "#1c1c1c"
 foreground = "#E9E9E9"
 
 [colors.cursor]
@@ -19,21 +19,22 @@ text = "#161616"
 cursor = "#f2f4f8"
 
 [colors.normal]
-black   = "#475258"
-red     = "#e67e80"
-green   = "#a7c080"
-yellow  = "#dbbc7f"
-blue    = "#7fbbb3"
-magenta = "#d699b6"
-cyan    = "#83c092"
-white   = "#d3c6aa"
+black   = "#2f383e"     # darker base for contrast
+red     = "#F85552"     # your chosen red
+green   = "#8DA101"     # your chosen green
+yellow  = "#DFA000"     # your chosen yellow
+blue    = "#3A94C5"     # your chosen blue
+magenta = "#c678dd"     # gentle magenta, slightly modernized
+cyan    = "#5FB3B3"     # calm cyan, still visible
+white   = "#D5C9AB"     # softened warm white
 
 [colors.bright]
-black   = "#475258"
-red     = "#e67e80"
-green   = "#a7c080"
-yellow  = "#dbbc7f"
-blue    = "#7fbbb3"
-magenta = "#d699b6"
-cyan    = "#83c092"
-white   = "#d3c6aa"
+black   = "#475258"     # Everforest’s deep gray
+red     = "#F97B72"     # bright version of your red
+green   = "#A7C080"     # bright Everforest green
+yellow  = "#E6C384"     # brighter, softer yellow
+blue    = "#6CB6EB"     # bright version of your blue
+magenta = "#D699B6"     # keep for consistency
+cyan    = "#83C092"     # slight bright bump
+white   = "#FDF6E3"     # warm, readable light
+

@@ -23,6 +23,21 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
+vim.g.clipboard = {
+  name = 'xclip',
+  copy = {
+    ['+'] = 'xclip -selection clipboard',
+    ['*'] = 'xclip -selection primary',
+  },
+  paste = {
+    ['+'] = 'xclip -selection clipboard -o',
+    ['*'] = 'xclip -selection primary -o',
+  },
+  cache_enabled = 1,
+}
+
+vim.opt.number = true
+
 -- make arrow keys behave visually in wrapped lines
 vim.keymap.set("n", "<Down>", "gj", { noremap = true, silent = true })
 vim.keymap.set("n", "<Up>", "gk", { noremap = true, silent = true })
@@ -35,4 +50,6 @@ vim.keymap.set("v", "<Left>", "h", { noremap = true, silent = true })
 vim.keymap.set("v", "<Right>", "l", { noremap = true, silent = true })
 
 vim.o.wrap = true
+
+require("custom.highlights")
 

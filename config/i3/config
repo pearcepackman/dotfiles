@@ -1,4 +1,4 @@
-exec --no-startup-id ~/.local/bin/start-picom.sh
+#exec --no-startup-id ~/.local/bin/start-picom.sh
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/italy.jpg
 
@@ -203,7 +203,9 @@ bindsym $mod+Shift+e exec --no-startup-id ~/.config/i3/scripts/powermenu
 # lock by blurring the screen:
 bindsym $mod+l exec --no-startup-id ~/.config/i3/scripts/blur-lock
 # lock in case after sleep
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 1d2021
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 1d2021
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/blur-lock
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
